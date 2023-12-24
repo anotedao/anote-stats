@@ -10,7 +10,6 @@ var mac *macaron.Macaron
 
 func main() {
 	log.SetFlags(log.LstdFlags | log.Lshortfile)
-	log.Println("test")
 
 	mac = initMacaron()
 
