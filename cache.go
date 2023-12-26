@@ -3,6 +3,8 @@ package main
 import (
 	"log"
 	"time"
+
+	"github.com/dustin/go-humanize"
 )
 
 type Cache struct {
@@ -23,7 +25,7 @@ func (c *Cache) loadStatsCache() {
 		log.Println(err.Error())
 	}
 	mined := int64(bh.Height + 1000)
-	c.StatsCache.Mined = mined
+	c.StatsCache.Mined = humanize.Comma(mined)
 }
 
 func (c *Cache) start() {
