@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"log"
 	"time"
 
@@ -18,7 +19,7 @@ func (c *Cache) loadStatsCache() {
 		log.Println(err.Error())
 	}
 	price := float64(priceInt.(int64)) / float64(MULT8)
-	c.StatsCache.Price = price
+	c.StatsCache.Price = fmt.Sprintf("%.4f", price)
 
 	bh, err := anc.BlocksHeight()
 	if err != nil {
@@ -39,7 +40,7 @@ func (c *Cache) start() {
 type StatsCache struct {
 	ActiveMiners int
 	Holders      int
-	Price        float64
+	Price        string
 	AmountTlg    float64
 	AmountMobile float64
 	Mined        string
