@@ -17,6 +17,13 @@ func (c *Cache) loadStatsCache() {
 	}
 	price := float64(priceInt.(int64)) / float64(MULT8)
 	c.StatsCache.Price = price
+
+	bh, err := anc.BlocksHeight()
+	if err != nil {
+		log.Println(err.Error())
+	}
+	mined := int64(bh.Height + 1000)
+	c.StatsCache.Mined = mined
 }
 
 func (c *Cache) start() {
