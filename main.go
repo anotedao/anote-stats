@@ -8,8 +8,12 @@ import (
 
 var mac *macaron.Macaron
 
+var cch *Cache
+
 func main() {
 	log.SetFlags(log.LstdFlags | log.Lshortfile)
+
+	cch = initCache()
 
 	mac = initMacaron()
 
