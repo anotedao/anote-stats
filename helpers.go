@@ -3,6 +3,7 @@ package main
 import (
 	"context"
 	"log"
+	"math"
 	"net/http"
 	"time"
 
@@ -67,6 +68,8 @@ func getAmountNode() float64 {
 	}
 
 	am = (1440 * 0.005) / float64(len(pc))
+
+	am = math.Ceil(am*float64(MULT8)) / float64(MULT8)
 
 	return am
 }
