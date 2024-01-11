@@ -20,6 +20,7 @@ func (c *Cache) loadStatsCache() {
 	}
 	price := float64(priceInt.(int64)) / float64(MULT8)
 	c.StatsCache.Price = fmt.Sprintf("%.4f", price)
+	c.StatsCache.AmountNode = getAmountNode()
 
 	bh, err := anc.BlocksHeight()
 	if err != nil {
@@ -43,6 +44,7 @@ type StatsCache struct {
 	Price        string
 	AmountTlg    float64
 	AmountMobile float64
+	AmountNode   float64
 	Mined        string
 	Community    string
 	Circulation  string
